@@ -1,0 +1,47 @@
+echo "Enter a number: "
+read c
+x=$c
+x1=$c
+sum=0
+count=0
+r=0
+n=0
+ONE=1
+while [ $x1 -gt 0 ]
+do
+        count=$((count+1))
+        x1=`expr $x1 / 10`
+done
+
+while [ $x -gt 0 ]
+do
+	r=`expr $x % 10`
+	n=$(($r**$count))
+	sum=`expr $sum + $n`
+	x=`expr $x / 10`
+done
+if [ $sum -eq $c ]
+	then
+	echo "It is an Armstrong Number."
+	else
+	echo "It is not an Armstrong Number."
+fi
+
+
+
+
+echo "Enter a String"
+read input
+reverse=""
+
+len=${#input}
+for (( i=$len-1; i>=0; i-- ))
+do 
+	reverse="$reverse${input:$i:1}"
+done
+if [ $input == $reverse ]
+then
+    echo "$input is palindrome"
+else
+    echo "$input is not palindrome"
+fi
